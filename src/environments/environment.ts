@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 
-  SERVICE_BASEPATH: 'http://localhost:3200/api/v1', // /categoria
+  SERVICE_BASEPATH: 'http://localhost:3200/api/v1',
 };
 
 /*
