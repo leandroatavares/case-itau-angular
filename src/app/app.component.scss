@@ -1,0 +1,31 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+
+  .sidenav {
+    
+  }
+
+  .content {
+    position: relative;
+    background-color: var(--gray-900);
+
+    button {
+      width: 3.5rem;
+      height: 3.5rem;
+      position: absolute;
+      top: 24px;
+      border: none;
+      background-color: var(--gray-800);
+      color: var(--text);
+      left: -10px;
+      border-bottom-right-radius: 999px;
+      border-top-right-radius: 999px;
+    }
+  }
+
+  .sidenav {
+    background-color: var(--gray-800);
+    border: none;
+  }
+}

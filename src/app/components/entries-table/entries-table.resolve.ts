@@ -18,6 +18,8 @@ export class EntriesTableResolver implements Resolve<any> {
   ) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+    this.presenter = []
+
       return this.entriesService.getEntries().pipe(
         map((entries: Entry[]) => {
           entries.forEach(entry => {

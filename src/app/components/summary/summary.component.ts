@@ -45,7 +45,7 @@ export class SummaryComponent implements OnInit {
         withdraws: 0,
         total: 0
       })
-    }, 200)
+    }, 300)
   }
 
 }

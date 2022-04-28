@@ -1,0 +1,23 @@
+.container {
+  a {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 1rem;
+    padding: 2rem 1rem;
+
+    & + a {
+      margin-top: 4px;
+    }
+
+    &:hover {
+      background-color: var(--gray-700);
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 0;
+      margin-left: 10px;
+    }
+  }
+}

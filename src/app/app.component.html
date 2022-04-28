@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="wrapper">
+
+  <mat-sidenav #sidenav mode="side" opened class="sidenav" [fixedInViewport]="true">
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+
+    <button mat-fab (click)="sidenav.toggle()" aria-label="Button for open and close navigator">
+      <fa-icon class="--green" [icon]="sidenav.opened ? iconFaLeft : iconFaRight"></fa-icon>
+    </button>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
