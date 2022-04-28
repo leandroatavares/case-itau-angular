@@ -4,7 +4,7 @@
       <p>Entradas</p>
       <fa-icon class="--green" [icon]="iconFaMoneyBill1"></fa-icon>
     </div>
-    <strong>{{summary.deposits | currency:'BRL':true:'1.2-2'}}</strong>
+    <strong>{{summary.deposits | currency:'BRL':'R$':'1.2-2'}}</strong>
   </div>
 
   <div>
@@ -12,7 +12,7 @@
       <p>Saídas</p>
       <fa-icon class="--red" [icon]="iconFaMoneyBillWave"></fa-icon>
     </div>
-    <strong>{{summary.withdraws | currency:'BRL':true:'1.2-2'}}</strong>
+    <strong>{{summary.withdraws | currency:'BRL':'R$':'1.2-2'}}</strong>
   </div>
 
   <!-- TODO - alterar dinâmico -->
@@ -21,6 +21,6 @@
       <p>Total</p>
       <fa-icon [icon]="iconFaSackDollar"></fa-icon>
     </div>
-    <strong>{{summary.total | currency:'BRL':true:'1.2-2'}}</strong>
+    <strong>{{summary.total | currency:'BRL':'R$':'1.2-2'}}</strong>
   </div>
 </section>

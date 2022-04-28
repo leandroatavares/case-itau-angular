@@ -13,7 +13,7 @@
       <td>{{entry.description}}</td>
       <td>{{entry.date}}</td>
       <td [ngClass]="{'--deposit': entry.value > 0, '--withdraw': entry.value < 0}">
-        {{entry.value | currency:'BRL':true:'1.2-2'}}
+        {{entry.value | currency:'BRL':'R$':'1.2-2'}}
       </td>
     </tr>
   </tbody>
