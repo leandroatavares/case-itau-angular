@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Categoria</th>
+      <th>Descrição</th>
+      <th>Data</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let entry of presenter">
+      <td>{{entry.categoria}}</td>
+      <td>{{entry.description}}</td>
+      <td>{{entry.date}}</td>
+      <td [ngClass]="{'--deposit': entry.value > 0, '--withdraw': entry.value < 0}">
+        {{entry.value | currency:'BRL':true:'1.2-2'}}
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,4 +1,4 @@
-interface Entry {
+export interface Entry {
   id?: string;
   idCategoria: string;
   description: string;
