@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-//TODO - remover daqui (utilizado no service)
+//TODO - remover EntryPresenter daqui (utilizado no service)
 export interface EntryPresenter {
   categoria: string;
   description: string;
@@ -16,6 +16,7 @@ export interface EntryPresenter {
 })
 export class EntriesTableComponent implements OnInit {
   presenter: EntryPresenter[] = this.activatedRoute.snapshot.data['entries'];
+
   constructor(
     private activatedRoute: ActivatedRoute
   ) { }

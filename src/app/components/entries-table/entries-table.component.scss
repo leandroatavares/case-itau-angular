@@ -10,6 +10,13 @@ table {
     text-align: left;
     line-height: 1.5rem;
   }
+  tr {
+    transition: filter .2s;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
 
   td {
     padding: 1rem 2rem;
@@ -19,16 +26,12 @@ table {
     color: var(--text);
     border-radius: .25rem;
 
-    &:first-child {
-      color: var(--title);
-    }
-
     &.--deposit {
       color: var(--green);
     }
 
     &.--withdraw {
-      color: var(--red);
+      color: var(--red-800);
     }
   }
 }
