@@ -2,9 +2,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { EntryPresenter } from '../components/entries-table/entries-table.component';
-import { CategoriesService } from './categories.service';
-import { Entry } from './models/Entry';
+import { EntryPresenter } from '../../components/entries-table/entries-table.component';
+import { CategoriesService } from '../category/categories.service';
+import { Entry } from '../models/Entry';
 
 @Injectable({
   providedIn: 'root'

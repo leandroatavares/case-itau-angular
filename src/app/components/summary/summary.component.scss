@@ -1,0 +1,44 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+
+  > div {
+    background-color: var(--gray-700);
+    padding: 1.5rem 2rem;
+    border-radius: .25rem;
+    color: var(--text);
+
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      fa-icon {
+        font-size: 1.3rem;
+      }
+      fa-icon.--green {
+        color: var(--green);
+      }
+      fa-icon.--red {
+        color: var(--red);
+      }
+    }
+
+    strong {
+      display: block;
+      margin-top: 1rem;
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 3rem;
+    }
+  }
+  div:last-child.--positive {
+    background-color: var(--green);
+    color: var(--white);
+  }
+  div:last-child.--negative {
+    background-color: var(--red);
+    color: var(--white);
+  }
+}

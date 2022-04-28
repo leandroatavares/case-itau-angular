@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { map } from 'rxjs';
-import { CategoriesService } from '../../services/categories.service';
-import { EntriesService } from '../../services/entries.service';
+import { CategoriesService } from 'src/app/services/category/categories.service';
+import { EntriesService } from 'src/app/services/entry/entries.service';
 import { Entry } from '../../services/models/Entry';
 import { EntryPresenter } from './entries-table.component';
 
@@ -20,9 +20,7 @@ export class EntriesTableResolver implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
       return this.entriesService.getEntries().pipe(
         map((entries: Entry[]) => {
-          
           entries.forEach(entry => {
-            //TODO- unsubscribe
             this.categoriesService.getCategory(entry.idCategoria).subscribe(
               res => {
                 this.presenter.push({
