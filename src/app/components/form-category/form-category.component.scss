@@ -1,0 +1,32 @@
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+::ng-deep .mat-form-field {
+  width: 30rem;
+  height: 4rem;
+}
+
+::ng-deep .mat-form-field.mat-focused {
+  .mat-form-field-label {
+    color: var(--gray-300);
+  }
+  .mat-form-field-ripple {
+      background-color: var(--gray-300);
+  }
+  .mat-form-field-required-marker {
+      color: var(--gray-300);
+  }
+  .mat-input-element {
+      color: var(--gray-300);
+  }
+}
+
+::ng-deep .mat-flat-button {
+
+  height: 3rem;
+}

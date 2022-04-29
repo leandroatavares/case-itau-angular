@@ -23,8 +23,8 @@ export class CategoriesService {
     return this.http.get<Category>(`${this.URL}/${id}`);
   }
 
-  createCategory(category: Category) {
-    return this.http.post(`${this.URL}`, category);
+  createCategory(name: string): Observable<Category> {
+    return this.http.post<Category>(`${this.URL}`, {name});
   }
 
   deleteCategory(id: string) {

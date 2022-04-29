@@ -11,16 +11,19 @@ import { Category } from 'src/app/services/models/Category';
 })
 export class CategoryComponent implements OnInit {
 
-  categories$: Observable<Category[]>;
+  categories$!: Observable<Category[]>;
   iconClose = faClose;
 
   constructor(
     private categoryService: CategoriesService
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.categories$ = this.categoryService.getCategories();
   }
 
-  ngOnInit(): void {
+  refresh(e: any) {
+    this.ngOnInit();
   }
 
 }

@@ -1,7 +1,17 @@
-<form action="">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Name">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+<form (ngSubmit)="onSubmit()" [formGroup]="categoryForm">
+  <mat-form-field class="form-field" appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input type="email" matInput formControlName="name" placeholder="Ex. Alimentação" minlength="3">
+
+    <!-- start: form errors -->
+    <mat-error *ngIf="name?.errors?.['required']">
+      Nome é <strong>obrigatório</strong>
+    </mat-error>
+    <mat-error *ngIf="name?.errors?.['minlength']">
+      Nome deve conter 3 caracteres
+    </mat-error>
+    <!-- end: form errors -->
+
+  </mat-form-field>
+  <button mat-flat-button [disabled]="!categoryForm.valid">Adicionar</button>
 </form>
