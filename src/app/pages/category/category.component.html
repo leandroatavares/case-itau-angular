@@ -1,1 +1,11 @@
-<p>category works!</p>
+<section class="container">
+
+  
+
+  <div class="categories">
+    <div class="category" *ngFor="let category of categories$ | async">
+      <p>{{category.name}}</p>
+      <fa-icon [icon]="iconClose"></fa-icon>
+    </div>
+  </div>
+</section>

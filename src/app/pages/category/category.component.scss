@@ -1,0 +1,32 @@
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .category {
+    display: flex;
+    padding: 10px 15px;
+    border-radius: 999px;
+    border: 1px solid var(--gray-700);
+    margin-left: .5rem;
+    margin-top: 1rem;
+
+    &:hover {
+      background-color: var(--gray-700);
+      color: var(--gray-100);
+      cursor: pointer;
+    }
+
+    p {
+      margin: 0;
+      margin-right: 10px;
+    }
+  }
+
+}
