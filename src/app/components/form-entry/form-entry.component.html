@@ -1,0 +1,52 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="entryForm">
+  <mat-form-field class="category" appearance="fill">
+    <mat-label>Categoria</mat-label>
+    <mat-select formControlName="idCategoria">
+      <mat-option *ngFor="let category of categories$ | async" [value]="category.id">{{category.name}}</mat-option>
+    </mat-select>
+    <!-- start: form errors -->
+    <mat-error *ngIf="description?.errors?.['required']">
+      Categoria é <strong>obrigatória</strong>
+    </mat-error>
+    <!-- end: form errors -->
+  </mat-form-field>
+
+  <mat-form-field class="description" appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <input type="email" matInput formControlName="description" placeholder="Ex. Compras no mercado" minlength="5">
+    <!-- start: form errors -->
+    <mat-error *ngIf="description?.errors?.['required']">
+      Descrição é <strong>obrigatória</strong>
+    </mat-error>
+    <mat-error *ngIf="description?.errors?.['minlength']">
+      Descrição deve ter no mínimo 5 caracteres
+    </mat-error>
+    <!-- end: form errors -->
+  </mat-form-field>
+
+  <mat-form-field class="value" appearance="fill" floatLabel="always">
+    <mat-label>Valor</mat-label>
+    <input matInput formControlName="value" type="number" class="example-right-align" placeholder="13,99">
+    <span matPrefix>R$&nbsp;</span>
+    <!-- start: form errors -->
+    <mat-error *ngIf="value?.errors?.['required']">
+      Valor é <strong>obrigatório</strong>
+    </mat-error>
+    <!-- end: form errors -->
+  </mat-form-field>
+
+  <mat-form-field class="date" appearance="fill">
+    <mat-label>Data</mat-label>
+    <input matInput formControlName="date" [matDatepicker]="dp3">
+    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+
+    <!-- start: form errors -->
+    <mat-error *ngIf="date?.errors?.['required']">
+      Data é <strong>obrigatória</strong>
+    </mat-error>
+    <!-- end: form errors -->
+  </mat-form-field>
+
+  <button mat-flat-button [disabled]="!entryForm.valid">Adicionar</button>
+</form>

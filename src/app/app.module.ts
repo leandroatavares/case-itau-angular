@@ -4,7 +4,11 @@ import localePt from '@angular/common/locales/pt';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EntriesTableComponent } from './components/entries-table/entries-table.component';
 import { FormCategoryComponent } from './components/form-category/form-category.component';
+import { FormEntryComponent } from './components/form-entry/form-entry.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { CategoryComponent } from './pages/category/category.component';
@@ -28,7 +33,8 @@ registerLocaleData(localePt, 'pt');
     HomeComponent,
     SidenavComponent,
     CategoryComponent,
-    FormCategoryComponent
+    FormCategoryComponent,
+    FormEntryComponent
   ],
   imports: [
     BrowserModule,
@@ -39,11 +45,17 @@ registerLocaleData(localePt, 'pt');
     MatSidenavModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
-    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL'}
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL'},
+    MatDatepickerModule,
+    MatNativeDateModule
 ],
   bootstrap: [AppComponent]
 })

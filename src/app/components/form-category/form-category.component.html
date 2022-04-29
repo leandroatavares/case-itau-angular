@@ -1,7 +1,7 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="categoryForm">
   <mat-form-field class="form-field" appearance="fill">
     <mat-label>Nome</mat-label>
-    <input type="email" matInput formControlName="name" placeholder="Ex. Alimentação" minlength="3">
+    <input type="text" matInput formControlName="name" placeholder="Ex. Alimentação" minlength="3">
 
     <!-- start: form errors -->
     <mat-error *ngIf="name?.errors?.['required']">

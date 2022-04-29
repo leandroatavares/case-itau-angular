@@ -1,0 +1,43 @@
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+::ng-deep .mat-form-field {
+  height: 4rem;
+
+  &.category {
+    width: 200px;
+  }
+  &.description {
+    width: 350px;
+  }
+  &.value {
+    width: 150px;
+  }
+  &.date {
+    width: 150px;
+  }
+}
+
+::ng-deep .mat-form-field.mat-focused {
+  .mat-form-field-label {
+    color: var(--gray-300);
+  }
+  .mat-form-field-ripple {
+      background-color: var(--gray-300);
+  }
+  .mat-form-field-required-marker {
+      color: var(--gray-300);
+  }
+  .mat-input-element {
+      color: var(--gray-300);
+  }
+}
+
+::ng-deep .mat-flat-button {
+  height: 3rem;
+  margin-bottom: 10px;
+}
