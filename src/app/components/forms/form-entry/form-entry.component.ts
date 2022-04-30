@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EntriesService } from 'src/app/services/entry/entries.service';
 import { Entry } from 'src/app/services/models/Entry';
-import { CategoriesService } from '../../services/category/categories.service';
-import { Category } from '../../services/models/Category';
+import { ToastService } from 'src/app/services/toast/toast.service';
+import { CategoriesService } from '../../../services/category/categories.service';
+import { Category } from '../../../services/models/Category';
 
 @Component({
   selector: 'app-form-entry',
@@ -19,9 +19,9 @@ export class FormEntryComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private _router: Router,
     private entryService: EntriesService,
-    private categoryService: CategoriesService
+    private categoryService: CategoriesService,
+    private toastService: ToastService
   ) {
     this.entryForm = this.fb.group({
       idCategoria: ['', [Validators.required]],
@@ -42,11 +42,14 @@ export class FormEntryComponent implements OnInit {
     }
     this.entryService.createEntry(rawData).subscribe(
       res => {
-        //TODO - remover o load, enviar um evento pra refazer a busca no doc
-        window.location.reload() //fere o principio do SPA
+        this.toastService.openSnackBar('Novo lançamento criado', '', null, null, 'toast--success');
+        setTimeout(() => {
+          //TODO - remover o reload, enviar um evento pra refazer a busca no doc
+          window.location.reload() //fere o principio do SPA
+        }, 1500);
       },
       err => {
-        console.log(err);
+        this.toastService.openSnackBar(err.error, '', null, null, 'toast--error');
       }
     )
   }
@@ -55,6 +58,5 @@ export class FormEntryComponent implements OnInit {
   get description() { return this.entryForm.get('description') }
   get date() { return this.entryForm.get('date') }
   get value() { return this.entryForm.get('value') }
-
 
 }

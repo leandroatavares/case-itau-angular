@@ -10,14 +10,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EntriesTableComponent } from './components/entries-table/entries-table.component';
-import { FormCategoryComponent } from './components/form-category/form-category.component';
-import { FormEntryComponent } from './components/form-entry/form-entry.component';
+import { FormCategoryComponent } from './components/forms/form-category/form-category.component';
+import { FormEntryComponent } from './components/forms/form-entry/form-entry.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { CategoryComponent } from './pages/category/category.component';
@@ -49,7 +50,8 @@ registerLocaleData(localePt, 'pt');
     MatFormFieldModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
