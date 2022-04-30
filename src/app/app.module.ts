@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -23,6 +24,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { HomeComponent } from './pages/home/home.component';
+import { DeleteDialogComponent } from './components/dialogs/delete-dialog/delete-dialog.component';
+
 
 registerLocaleData(localePt, 'pt');
 
@@ -35,7 +38,8 @@ registerLocaleData(localePt, 'pt');
     SidenavComponent,
     CategoryComponent,
     FormCategoryComponent,
-    FormEntryComponent
+    FormEntryComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,8 @@ registerLocaleData(localePt, 'pt');
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

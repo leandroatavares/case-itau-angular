@@ -3,7 +3,7 @@
   <app-form-category (formSubmitedEvent)="refresh($event)"></app-form-category>
 
   <div class="categories">
-    <div class="category" *ngFor="let category of categories$ | async">
+    <div class="category" *ngFor="let category of categories$ | async" (click)="openDialog(category)">
       <p>{{category.name}}</p>
       <fa-icon [icon]="iconClose"></fa-icon>
     </div>

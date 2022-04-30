@@ -10,7 +10,6 @@ import { Category } from '../models/Category';
 export class CategoriesService {
   private URL = `${environment.SERVICE_BASEPATH}/categoria`;
 
-
   constructor(
     private http: HttpClient
   ) { }
