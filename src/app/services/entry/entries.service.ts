@@ -26,7 +26,7 @@ export class EntriesService {
   }
 
   getEntry(id: string) {
-    return this.http.get(`${this.URL}/${id}`);
+    return this.http.get<Entry>(`${this.URL}/${id}`);
   }
 
   deleteEntry(id: string) {
