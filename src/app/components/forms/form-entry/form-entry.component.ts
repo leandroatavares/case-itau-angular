@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { EntriesService } from 'src/app/services/entry/entries.service';
@@ -16,6 +16,7 @@ export class FormEntryComponent implements OnInit {
 
   entryForm: FormGroup;
   categories$!: Observable<Category[]>;
+  @Output() formSubmitedEvent = new EventEmitter<Entry>();
 
   constructor(
     private fb: FormBuilder,
@@ -43,10 +44,7 @@ export class FormEntryComponent implements OnInit {
     this.entryService.createEntry(rawData).subscribe(
       res => {
         this.toastService.openSnackBar('Novo lançamento criado', '', null, null, 'toast--success');
-        setTimeout(() => {
-          //TODO - remover o reload, enviar um evento pra refazer a busca no doc
-          window.location.reload() //fere o principio do SPA
-        }, 1500);
+        this.formSubmitedEvent.emit(res)
       },
       err => {
         this.toastService.openSnackBar(err.error, '', null, null, 'toast--error');

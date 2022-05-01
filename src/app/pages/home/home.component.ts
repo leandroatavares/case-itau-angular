@@ -10,15 +10,18 @@ import { EntriesService } from 'src/app/services/entry/entries.service';
 })
 export class HomeComponent implements OnInit {
 
-  entries$: Observable<EntryPresenter[]>
+  entries$!: Observable<EntryPresenter[]>
 
   constructor(
     private entriesService: EntriesService
-  ) {
+  ) { }
+
+  ngOnInit(): void {
     this.entries$ = this.entriesService.getPresentedEntries();
   }
 
-  ngOnInit(): void {
+  refresh(e: any) {
+    this.ngOnInit();
   }
 
 }

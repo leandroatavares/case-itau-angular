@@ -29,8 +29,8 @@ export class EntriesService {
     return this.http.get(`${this.URL}/${id}`);
   }
 
-  createEntry(entry: Entry) {
-    return this.http.post(`${this.URL}`, entry);
+  createEntry(entry: Entry): Observable<Entry> {
+    return this.http.post<Entry>(`${this.URL}`, entry);
   }
 
   getPresentedEntries(): Observable<EntryPresenter[]> {

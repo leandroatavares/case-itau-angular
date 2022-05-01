@@ -1,5 +1,5 @@
 <section class="container">
-  <app-form-entry></app-form-entry>
+  <app-form-entry (formSubmitedEvent)="refresh($event)"></app-form-entry>
   <app-summary [presenter]="entries$ | async"></app-summary>
   <app-entries-table [presenter]="entries$ | async"></app-entries-table>
 </section>
