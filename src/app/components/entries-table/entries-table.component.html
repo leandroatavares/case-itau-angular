@@ -7,8 +7,8 @@
       <th>Valor</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let entry of presenter">
+  <tbody *ngIf="presenter">
+    <tr *ngFor="let entry of presenter" (click)="deleteEntry(entry)">
       <td>{{entry.categoria}}</td>
       <td>{{entry.description}}</td>
       <td>{{entry.date}}</td>

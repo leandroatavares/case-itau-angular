@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EntryPresenter } from 'src/app/components/entries-table/entries-table.component';
+import { EntriesService } from 'src/app/services/entry/entries.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  entries$: Observable<EntryPresenter[]>
+
+  constructor(
+    private entriesService: EntriesService
+  ) {
+    this.entries$ = this.entriesService.getPresentedEntries();
+  }
 
   ngOnInit(): void {
   }

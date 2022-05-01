@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
 
 //TODO - remover EntryPresenter daqui (utilizado no service)
 export interface EntryPresenter {
@@ -15,12 +14,17 @@ export interface EntryPresenter {
   styleUrls: ['./entries-table.component.scss']
 })
 export class EntriesTableComponent implements OnInit {
-  presenter: EntryPresenter[] = this.activatedRoute.snapshot.data['entries'];
+  @Input() presenter: EntryPresenter[] | null;
 
   constructor(
-    private activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+    this.presenter = [];
+  }
 
   ngOnInit(): void {
+  }
+
+  deleteEntry(entry: EntryPresenter) {
+    console.log(entry);
   }
 }

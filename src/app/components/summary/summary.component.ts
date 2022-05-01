@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faMoneyBill1, faMoneyBillWave, faSackDollar } from '@fortawesome/free-solid-svg-icons';
+import { BehaviorSubject } from 'rxjs';
 import { EntryPresenter } from '../entries-table/entries-table.component';
 
 interface SummaryValues {
@@ -19,8 +20,16 @@ export class SummaryComponent implements OnInit {
   iconFaSackDollar = faSackDollar;
   iconFaMoneyBill1 = faMoneyBill1;
 
-  presenter: EntryPresenter[];
+  private _presenter = new BehaviorSubject<EntryPresenter[]>([]);
   summary: SummaryValues = { deposits: 0, withdraws: 0, total: 0 };
+
+  @Input() set presenter(value: EntryPresenter[] | null) {
+    value && this._presenter.next(value);
+  }
+
+  get items() {
+  return this._presenter.getValue();
+  }
 
   constructor(
     private activatedRoute: ActivatedRoute
@@ -29,9 +38,14 @@ export class SummaryComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    //TODO - remover timeout (verificar o porque presenter nao esta populado no momento)
+    this._presenter.subscribe(x => {
+      this.calculeSummary(x);
+    })
+  }
+
+  calculeSummary(entries: EntryPresenter[]) {
     setTimeout(() => {
-      this.summary = this.presenter.reduce((acc, entry) => {
+      this.summary = entries.reduce((acc, entry) => {
         if(entry.value > 0) {
           acc.deposits += entry.value;
           acc.total += entry.value;
