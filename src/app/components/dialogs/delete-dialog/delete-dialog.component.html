@@ -1,6 +1,7 @@
 <div class="dialog">
   <mat-dialog-content>
-  <p>Você gostaria de deletar a categoria: {{data.name}}</p>
+  <p *ngIf="data.name">Você gostaria de deletar a categoria: {{data.name}}</p>
+  <p *ngIf="data.description">Você gostaria de deletar a categoria: {{data.description}}</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Não</button>

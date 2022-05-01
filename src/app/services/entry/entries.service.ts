@@ -29,6 +29,10 @@ export class EntriesService {
     return this.http.get(`${this.URL}/${id}`);
   }
 
+  deleteEntry(id: string) {
+    return this.http.delete(`${this.URL}/${id}`)
+  }
+
   createEntry(entry: Entry): Observable<Entry> {
     return this.http.post<Entry>(`${this.URL}`, entry);
   }
@@ -42,6 +46,7 @@ export class EntriesService {
           this.categoriesService.getCategory(entry.idCategoria).subscribe(
             res => {
               presenter.push({
+                id: entry.id,
                 categoria: res.name,
                 description: entry.description,
                 date: entry.date,
