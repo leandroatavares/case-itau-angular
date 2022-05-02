@@ -35,3 +35,18 @@ table {
     }
   }
 }
+
+@media (max-width: 840px) {
+
+  .date {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .category {
+    display: none;
+  }
+
+}

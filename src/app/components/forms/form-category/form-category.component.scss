@@ -29,3 +29,14 @@ form {
 
   height: 3rem;
 }
+
+@media (max-width: 840px) {
+  form {
+    flex-direction: column;
+  }
+
+  ::ng-deep .mat-form-field {
+    width: 75%;
+  }
+
+}

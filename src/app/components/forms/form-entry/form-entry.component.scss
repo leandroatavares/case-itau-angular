@@ -41,3 +41,25 @@ form {
   height: 3rem;
   margin-bottom: 10px;
 }
+
+@media (max-width: 840px) {
+  form {
+    flex-direction: column;
+  }
+  ::ng-deep .mat-form-field {
+    height: 4rem;
+  
+    &.category {
+      width: 75%;
+    }
+    &.description {
+      width: 75%;
+    }
+    &.value {
+      width: 75%;
+    }
+    &.date {
+      width: 75%;
+    }
+  }
+}

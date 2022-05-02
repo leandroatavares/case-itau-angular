@@ -1,18 +1,18 @@
 <table>
   <thead>
     <tr>
-      <th>Categoria</th>
-      <th>Descrição</th>
-      <th>Data</th>
-      <th>Valor</th>
+      <th class="category">Categoria</th>
+      <th class="description">Descrição</th>
+      <th class="date">Data</th>
+      <th class="value">Valor</th>
     </tr>
   </thead>
   <tbody *ngIf="presenter">
     <tr *ngFor="let entry of presenter" (click)="deleteEntry(entry)">
-      <td>{{entry.categoria}}</td>
-      <td>{{entry.description}}</td>
-      <td>{{entry.date}}</td>
-      <td [ngClass]="{'--deposit': entry.value > 0, '--withdraw': entry.value < 0}">
+      <td class="category">{{entry.categoria}}</td>
+      <td class="description">{{entry.description}}</td>
+      <td class="date">{{entry.date}}</td>
+      <td class="value" [ngClass]="{'--deposit': entry.value > 0, '--withdraw': entry.value < 0}">
         {{entry.value | currency:'BRL':'R$':'1.2-2'}}
       </td>
     </tr>
